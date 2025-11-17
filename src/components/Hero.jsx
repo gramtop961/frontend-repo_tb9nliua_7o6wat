@@ -1,57 +1,63 @@
 import { motion } from "framer-motion";
-import { Sparkles } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden pt-28" id="home">
+    <section className="relative overflow-hidden pt-24 sm:pt-28" id="home">
+      {/* Background */}
+      <div className="absolute inset-0 -z-20 bg-[#0a0a0a]" />
       <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-200/40 via-transparent to-transparent" />
-        <div className="absolute -top-40 -right-40 h-[520px] w-[520px] rounded-full bg-gradient-to-tr from-indigo-500/20 via-fuchsia-500/20 to-cyan-400/20 blur-3xl" />
+        <div className="pointer-events-none select-none">
+          {/* Aura gradients */}
+          <div className="absolute -top-40 -left-20 h-[520px] w-[520px] rounded-full bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08),transparent_60%)]" />
+          <div className="absolute -top-32 -right-24 h-[620px] w-[620px] rounded-full bg-[conic-gradient(from_120deg_at_50%_50%,#ff7b7b_0%,#ffb199_20%,#ffd36e_40%,#a7ffcf_60%,#8ec5ff_80%,#ff7b7b_100%)] opacity-[0.06] blur-3xl" />
+        </div>
       </div>
+
+      {/* Top eye line */}
+      <div className="absolute left-0 right-0 top-16 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-7">
             <motion.h1
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-5xl sm:text-6xl font-semibold tracking-tight text-gray-900"
+              className="text-5xl sm:text-6xl font-semibold tracking-tight text-white"
             >
               Predict human behavior with precision.
             </motion.h1>
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="mt-6 text-lg text-gray-600 max-w-2xl"
+              className="mt-6 text-lg text-neutral-300 max-w-2xl"
             >
               Palmist blends AI, data intelligence, and real-time analytics to decode how customers move, think, and convert—so you can design smarter experiences and drive growth.
             </motion.p>
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="mt-8 flex flex-col sm:flex-row gap-3"
             >
               <a
                 href="#cta"
-                className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-indigo-600 to-fuchsia-600 px-6 py-3 text-white font-medium shadow-lg shadow-indigo-600/30 hover:opacity-95"
+                className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-black font-medium hover:bg-white/90"
               >
-                <Sparkles className="h-5 w-5 mr-2" />
-                Start predicting
+                Buy Palmist
               </a>
               <a
                 href="#insights"
-                className="inline-flex items-center justify-center rounded-md border border-gray-200 px-6 py-3 text-gray-800 font-medium hover:bg-gray-50"
+                className="inline-flex items-center justify-center rounded-full border border-white/15 px-6 py-3 text-white font-medium hover:bg-white/5"
               >
-                See live insights
+                Explore insights
               </a>
             </motion.div>
-            <div className="mt-10 flex items-center gap-6 text-sm text-gray-500">
+            <div className="mt-10 flex items-center gap-6 text-sm text-neutral-400">
               <div className="flex -space-x-2">
                 {[...Array(5)].map((_, i) => (
-                  <div key={i} className="h-8 w-8 rounded-full bg-gradient-to-tr from-indigo-500 via-fuchsia-500 to-cyan-400 border-2 border-white" />
+                  <div key={i} className="h-8 w-8 rounded-full bg-white/10 border border-white/20" />
                 ))}
               </div>
               Trusted by product, growth, and research teams worldwide
@@ -59,12 +65,12 @@ export default function Hero() {
           </div>
           <div className="lg:col-span-5">
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
+              initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="relative rounded-xl border border-white/20 bg-white/70 backdrop-blur p-4 shadow-xl ring-1 ring-black/5"
+              className="relative rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-4 shadow-[0_0_0_1px_rgba(255,255,255,0.04)] ring-1 ring-black/20"
             >
-              <div className="absolute -inset-x-6 -top-6 h-32 bg-gradient-to-r from-indigo-500/20 via-fuchsia-500/20 to-cyan-400/20 blur-2xl" />
+              <div className="absolute -inset-x-6 -top-6 h-32 bg-[conic-gradient(from_120deg_at_50%_50%,#ff7b7b_0%,#ffb199_20%,#ffd36e_40%,#a7ffcf_60%,#8ec5ff_80%,#ff7b7b_100%)] opacity-[0.06] blur-2xl" />
               <div className="relative grid grid-cols-2 gap-4">
                 {[
                   { label: "Engagement", value: "+37%" },
@@ -72,11 +78,14 @@ export default function Hero() {
                   { label: "LTV Uplift", value: "+19%" },
                   { label: "Prediction", value: "98.2%" },
                 ].map((c) => (
-                  <div key={c.label} className="rounded-lg border border-gray-100 bg-white p-4">
-                    <p className="text-xs text-gray-500">{c.label}</p>
-                    <p className="mt-2 text-2xl font-semibold text-gray-900">{c.value}</p>
-                    <div className="mt-3 h-2 w-full rounded-full bg-gray-100">
-                      <div className="h-2 rounded-full bg-gradient-to-r from-indigo-600 to-fuchsia-600" style={{ width: Math.min(100, Math.random()*30 + 60) + "%" }} />
+                  <div key={c.label} className="rounded-xl border border-white/10 bg-black/40 p-4">
+                    <p className="text-xs text-neutral-400">{c.label}</p>
+                    <p className="mt-2 text-2xl font-semibold text-white">{c.value}</p>
+                    <div className="mt-3 h-2 w-full rounded-full bg-white/10">
+                      <div
+                        className="h-2 rounded-full bg-white"
+                        style={{ width: Math.min(100, Math.random() * 30 + 60) + "%" }}
+                      />
                     </div>
                   </div>
                 ))}
