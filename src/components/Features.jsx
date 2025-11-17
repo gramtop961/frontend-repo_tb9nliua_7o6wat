@@ -25,7 +25,12 @@ const features = [
 
 export default function Features() {
   return (
-    <section id="product" className="py-16 sm:py-24 bg-[#0a0a0a]">
+    <section id="product" className="py-20 bg-[#0a0a0a] relative">
+      {/* underglow */}
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute -bottom-40 left-20 h-[520px] w-[520px] rounded-full opacity-[0.06] blur-2xl bg-[conic-gradient(from_140deg_at_50%_50%,#ff7b7b_0%,#ffb199_16%,#ffd36e_32%,#a7ffcf_50%,#8ec5ff_68%,#ff7b7b_100%)]" />
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-white">
@@ -40,13 +45,14 @@ export default function Features() {
           {features.map(({ icon: Icon, title, desc }) => (
             <div
               key={title}
-              className="group rounded-2xl border border-white/10 bg-white/[0.03] p-6 shadow-[0_0_0_1px_rgba(255,255,255,0.04)] hover:bg-white/[0.05] transition"
+              className="group rounded-2xl border border-white/10 bg-white/[0.03] p-6 shadow-[0_0_0_1px_rgba(255,255,255,0.04)] hover:bg-white/[0.05] transition relative overflow-hidden"
             >
-              <div className="h-10 w-10 rounded-md bg-white text-black flex items-center justify-center shadow">
+              <div className="absolute -inset-6 opacity-0 group-hover:opacity-100 transition-opacity bg-[radial-gradient(60%_60%_at_50%_10%,rgba(255,255,255,0.06),transparent_60%)]" />
+              <div className="relative h-10 w-10 rounded-md bg-white text-black flex items-center justify-center shadow">
                 <Icon className="h-5 w-5" />
               </div>
-              <h3 className="mt-4 text-lg font-medium text-white">{title}</h3>
-              <p className="mt-2 text-sm text-neutral-400">{desc}</p>
+              <h3 className="relative mt-4 text-lg font-medium text-white">{title}</h3>
+              <p className="relative mt-2 text-sm text-neutral-400">{desc}</p>
             </div>
           ))}
         </div>

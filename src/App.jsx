@@ -6,7 +6,13 @@ import CTA from "./components/CTA";
 
 function App() {
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-neutral-200">
+    <div className="min-h-screen bg-[#0a0a0a] text-neutral-200 relative">
+      {/* Global background auras */}
+      <div className="pointer-events-none select-none absolute inset-0 -z-20">
+        <div className="absolute -top-56 -left-40 h-[720px] w-[720px] rounded-full opacity-[0.10] blur-3xl bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08),transparent_60%)]" />
+        <div className="absolute -bottom-72 -right-40 h-[900px] w-[900px] rounded-full opacity-[0.07] blur-3xl bg-[conic-gradient(from_140deg_at_50%_50%,#ff7b7b_0%,#ffb199_16%,#ffd36e_32%,#a7ffcf_50%,#8ec5ff_68%,#ff7b7b_100%)]" />
+      </div>
+
       <Navbar />
       <main>
         <Hero />
